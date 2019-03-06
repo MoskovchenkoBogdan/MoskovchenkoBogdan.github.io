@@ -41,3 +41,15 @@ fetch('https://api.github.com/users/MoskovchenkoBogdan')
     })
     .catch(error => console.error(error));
 
+if ('serviceWorker' in navigator){
+
+    navigator.serviceWorker
+        .register('./service-worker.js', { scope: './'})
+        .then(function(registration) {
+            console.log('SW registered! ');
+        })
+        .catch(function(err) {
+            console.log('Service Worker failed to registrate', err);
+        })
+}
+
